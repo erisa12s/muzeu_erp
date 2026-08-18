@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_muzeu_stafi_list" model="ir.ui.view">
+        <field name="name">muzeu.stafi.list</field>
+        <field name="model">muzeu.stafi</field>
+        <field name="arch" type="xml">
+            <list string="Stafi">
+                <field name="name"/>
+                <field name="mbiemer"/>
+                <field name="pozicioni"/>
+                <field name="email"/>
+                <field name="kati_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_muzeu_stafi_form" model="ir.ui.view">
+        <field name="name">muzeu.stafi.form</field>
+        <field name="model">muzeu.stafi</field>
+        <field name="arch" type="xml">
+            <form string="Punonjësi">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="mbiemer"/>
+                            <field name="pozicioni"/>
+                            <field name="paga"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="tel"/>
+                            <field name="kati_id"/>
+                            <field name="turni"/>
+                            <field name="state"/>
+                            <field name="data_punesimit"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_muzeu_stafi" model="ir.actions.act_window">
+        <field name="name">Stafi i Muzeut</field>
+        <field name="res_model">muzeu.stafi</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

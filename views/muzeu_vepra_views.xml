@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_muzeu_vepra_tree" model="ir.ui.view">
+        <field name="name">muzeu.vepra.list</field>
+        <field name="model">muzeu.vepra</field>
+        <field name="arch" type="xml">
+            <list string="Veprat e Artit">
+                <field name="name"/>
+                <field name="artisti_id"/>
+                <field name="lloji"/>
+                <field name="salla_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_muzeu_vepra_form" model="ir.ui.view">
+        <field name="name">muzeu.vepra.form</field>
+        <field name="model">muzeu.vepra</field>
+        <field name="arch" type="xml">
+            <form string="Vepra e Artit">
+                <sheet>
+                    <field name="foto" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Emri i Veprës..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="artisti_id"/>
+                            <field name="lloji"/>
+                            <field name="rryma"/>
+                        </group>
+                        <group>
+                            <field name="salla_id"/>
+                            <field name="state"/>
+                            <field name="data_krijimit"/>
+                            <field name="data_ekspozimit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Përshkrimi">
+                            <field name="pershkrim"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_muzeu_vepra" model="ir.actions.act_window">
+        <field name="name">Veprat e Artit</field>
+        <field name="res_model">muzeu.vepra</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

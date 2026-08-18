@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Grupi per  (Staf / Kasier) -->
+    <record id="group_muzeu_user" model="res.groups">
+        <field name="name">Muzeu / Staf (Kasier)</field>
+    </record>
+
+    <!-- Grupi per  (Menaxher) -->
+    <record id="group_muzeu_manager" model="res.groups">
+        <field name="name">Muzeu / Menaxher</field>
+        <field name="implied_ids" eval="[(4, ref('group_muzeu_user'))]"/>
+    </record>
+</odoo>

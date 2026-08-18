@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_muzeu_lloji_biletes_list" model="ir.ui.view">
+        <field name="name">muzeu.lloji.biletes.list</field>
+        <field name="model">muzeu.lloji.biletes</field>
+        <field name="arch" type="xml">
+            <list string="Konfigurimi i Biletave" editable="bottom">
+                <field name="name"/>
+                <field name="cmimi"/>
+                <field name="pershkrim"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_muzeu_lloji_biletes" model="ir.actions.act_window">
+        <field name="name">Çmimet e Biletave</field>
+        <field name="res_model">muzeu.lloji.biletes</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

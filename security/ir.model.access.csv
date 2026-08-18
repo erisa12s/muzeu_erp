@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_muzeu_kati,muzeu.kati,model_muzeu_kati,base.group_user,1,1,1,1
+access_muzeu_salla,muzeu.salla,model_muzeu_salla,base.group_user,1,1,1,1
+access_muzeu_artisti,muzeu.artisti,model_muzeu_artisti,base.group_user,1,1,1,1
+access_muzeu_vepra,muzeu.vepra,model_muzeu_vepra,base.group_user,1,1,1,1
+access_muzeu_stafi,muzeu.stafi,model_muzeu_stafi,base.group_user,1,1,1,1
+access_muzeu_bileta,muzeu.bileta,model_muzeu_bileta,base.group_user,1,1,1,1
+access_muzeu_lloji_biletes,muzeu.lloji.biletes,model_muzeu_lloji_biletes,base.group_user,1,1,1,1

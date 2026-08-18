@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_muzeu_root" name="Muzeu ERP" sequence="10"/>
+
+    <!-- Menuja e Re për Artin -->
+    <menuitem id="menu_muzeu_arti" name="Eksponatet &amp; Arti" parent="menu_muzeu_root" sequence="10"/>
+    <menuitem id="menu_muzeu_vepra" name="Veprat e Artit" parent="menu_muzeu_arti" action="action_muzeu_vepra" sequence="10"/>
+    <menuitem id="menu_muzeu_artisti" name="Artistët" parent="menu_muzeu_arti" action="action_muzeu_artisti" sequence="20"/>
+
+    <!-- Menuja e Stafit -->
+    <menuitem id="menu_muzeu_stafi_root" name="Menaxhimi i Stafit" parent="menu_muzeu_root" sequence="20"/>
+    <menuitem id="menu_muzeu_stafi" name="Punonjësit" parent="menu_muzeu_stafi_root" action="action_muzeu_stafi" sequence="10"/>
+
+    <!-- Menuja e Biletave -->
+    <menuitem id="menu_muzeu_bileta_root" name="Kasa &amp; Biletat" parent="menu_muzeu_root" sequence="15"/>
+    <menuitem id="menu_muzeu_bileta" name="Prerje Biletash" parent="menu_muzeu_bileta_root" action="action_muzeu_bileta" sequence="10"/>
+
+    <!-- Menuja e Konfigurimit -->
+    <menuitem id="menu_muzeu_konfigurim" name="Konfigurimi" parent="menu_muzeu_root" sequence="100"/>
+    <menuitem id="menu_muzeu_kati" name="Katet" parent="menu_muzeu_konfigurim" action="action_muzeu_kati" sequence="10"/>
+    <menuitem id="menu_muzeu_lloji_biletes" name="Çmimet e Biletave" parent="menu_muzeu_konfigurim" action="action_muzeu_lloji_biletes" sequence="20"/>
+</odoo>
