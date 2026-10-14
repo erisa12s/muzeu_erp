@@ -14,7 +14,11 @@
         'views/muzeu_lloji_biletes_views.xml',
         'views/muzeu_stafi_views.xml',
         'views/muzeu_vepra_views.xml',
+        'views/muzeu_itinerari_view.xml',
+        "views/muzeu_vizitori_views.xml",
         'views/muzeu_views.xml',
+
+
     ],
     'installable': True,
     'application': True,

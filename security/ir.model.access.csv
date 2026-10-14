@@ -6,3 +6,6 @@ access_muzeu_vepra,muzeu.vepra,model_muzeu_vepra,base.group_user,1,1,1,1
 access_muzeu_stafi,muzeu.stafi,model_muzeu_stafi,base.group_user,1,1,1,1
 access_muzeu_bileta,muzeu.bileta,model_muzeu_bileta,base.group_user,1,1,1,1
 access_muzeu_lloji_biletes,muzeu.lloji.biletes,model_muzeu_lloji_biletes,base.group_user,1,1,1,1
+access_muzeu_itinerari,access_muzeu_itinerari,model_muzeu_itinerari,base.group_user,1,1,1,1
+access_muzeu_itinerari_detaje,access_muzeu_itinerari_detaje,model_muzeu_itinerari_detaje,base.group_user,1,1,1,1
+access_muzeu_vizitori,muzeu.vizitori,model_muzeu_vizitori,base.group_user,1,1,1,1

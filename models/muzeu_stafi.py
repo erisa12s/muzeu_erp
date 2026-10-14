@@ -29,5 +29,4 @@ class MuzeuStafi(models.Model):
         ('larguar', 'I Larguar'),
     ], string='Statusi', default='aktiv')
 
-    # Relacioni me Katet
     kati_id = fields.Many2one('muzeu.kati', string='Kati ku është caktuar')

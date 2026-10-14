@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <list string="Biletat">
                 <field name="code"/>
-                <field name="emri_vizitorit"/>
+                <field name="vizitori_id"/>
                 <field name="lloji_biletes_id"/>
                 <field name="cmimi"/>
                 <field name="stafi_id"/>
@@ -30,7 +30,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="emri_vizitorit"/>
+                            <!-- KËTU: E kemi zëvendësuar plotësisht me vizitori_id -->
+                            <field name="vizitori_id"/>
                             <field name="lloji_biletes_id"/>
                             <field name="cmimi" readonly="1"/>
                         </group>
@@ -58,17 +59,4 @@
         <field name="res_model">muzeu.lloji.biletes</field>
         <field name="view_mode">list,form</field>
     </record>
-
-    <!-- 3. MENYTË DHE TË DREJTAT E AKSESIT -->
-    <!-- Menuja Kryesore -->
-    <menuitem id="menu_muzeu_root" name="Muzeu ERP"/>
-
-    <!-- Menuja Kasa & Biletat (E hapur per te gjithe: Ana & Erisa) -->
-    <menuitem id="menu_muzeu_biletat_root" name="Kasa &amp; Biletat" parent="menu_muzeu_root"/>
-    <menuitem id="menu_muzeu_biletat" name="Prerje Biletash" parent="menu_muzeu_biletat_root" action="action_muzeu_bileta"/>
-
-    <!-- Menuja Konfigurimi (E BLLOKUAR për Anën, E dukshme VETËM për Menaxherin) -->
-    <menuitem id="menu_muzeu_config_root" name="Konfigurimi" parent="menu_muzeu_root" groups="muzeu_erp.group_muzeu_manager"/>
-
-    <menuitem id="menu_muzeu_lloji_biletes" name="Çmimet e Biletave" parent="menu_muzeu_config_root" action="action_muzeu_lloji_biletes" groups="muzeu_erp.group_muzeu_manager"/>
 </odoo>

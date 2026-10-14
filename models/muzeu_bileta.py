@@ -3,6 +3,7 @@ from odoo import models, fields
 class MuzeuBileta(models.Model):
     _name = 'muzeu.bileta'
     _description = 'Biletat e Muzeut'
+    _rec_name = 'code'  # Përdorim kodin ose emrin e vizitorit për shfaqje
 
     code = fields.Char(
         string='Kodi i Biletës', 
@@ -10,7 +11,21 @@ class MuzeuBileta(models.Model):
         readonly=True, 
         default='E-TICKET'
     )
-    emri_vizitorit = fields.Char(string='Emri i Vizitorit')
+    
+    # 1. Relacioni i ri me modelin e Vizitorit
+    vizitori_id = fields.Many2one(
+        'muzeu.vizitori', 
+        string='Vizitori', 
+        ondelete='cascade'
+    )
+    
+    # Mund ta mbash si fushë 'related' me vizitorin për lehtësi
+    emri_vizitorit = fields.Char(
+        string='Emri i Vizitorit', 
+        related='vizitori_id.display_name', 
+        store=True, 
+        readonly=True
+    )
     
     # Relacioni dinamik me modelin e çmimeve (krijuar nga Menaxheri)
     lloji_biletes_id = fields.Many2one(

@@ -4,6 +4,7 @@ class MuzeuSalla(models.Model):
     _name = 'muzeu.salla'
     _description = 'Sallat e Muzeut'
 
+    name = fields.Char(string='Emri i Sallës')
     nr = fields.Integer(string='Numri i Sallës', required=True)
     lloji = fields.Selection([
         ('ekspozite', 'Sallë Ekspozite'),
@@ -13,5 +14,11 @@ class MuzeuSalla(models.Model):
     siperfaqe = fields.Float(string='Sipërfaqja (m²)')
     kapaciteti = fields.Integer(string='Kapaciteti Maksimal')
     
-    # Ky është Relacioni 1:N (Foreign Key për te Kati)
     kati_id = fields.Many2one('muzeu.kati', string='Kati', required=True, ondelete='cascade')
+
+    def _compute_display_name(self):
+        for rec in self:
+            if rec.name:
+                rec.display_name = f"Salla {rec.nr} - {rec.name}"
+            else:
+                rec.display_name = f"Salla {rec.nr}"

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_muzeu_vizitori_list" model="ir.ui.view">
+        <field name="name">muzeu.vizitori.list</field>
+        <field name="model">muzeu.vizitori</field>
+        <field name="arch" type="xml">
+            <list string="Vizitorët">
+                <field name="display_name"/>
+                <field name="tel"/>
+                <field name="email"/>
+                <field name="shtetesia"/>
+                <field name="kanal_regj"/>
+                <field name="nr_vizitave"/>
+                <field name="totali_shpenzuar" sum="Totali"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View Minimale me Smart Buttons -->
+    <record id="view_muzeu_vizitori_form" model="ir.ui.view">
+        <field name="name">muzeu.vizitori.form</field>
+        <field name="model">muzeu.vizitori</field>
+        <field name="arch" type="xml">
+            <form string="Vizitori">
+                <sheet>
+                    <!-- Smart Buttons Lart -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_biletat" type="object" class="oe_stat_button" icon="fa-ticket">
+                            <field name="nr_vizitave" widget="statinfo" string="Bileta"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-money" disabled="1">
+                            <field name="totali_shpenzuar" widget="statinfo" string="Shpenzuar (ALL)"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name" placeholder="Emri Mbiemri"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Të Dhënat Personale">
+                            <field name="emer"/>
+                            <field name="mbiemer"/>
+                            <field name="shtetesia"/>
+                        </group>
+                        <group string="Kontakti &amp; Regjistrimi">
+                            <field name="email"/>
+                            <field name="tel"/>
+                            <field name="kanal_regj"/>
+                            <field name="created_at"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_muzeu_vizitori" model="ir.actions.act_window">
+        <field name="name">Vizitorët</field>
+        <field name="res_model">muzeu.vizitori</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
