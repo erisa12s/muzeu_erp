@@ -57,7 +57,7 @@
                                         <td style="padding: 8px 0; text-align: right;"><span t-field="o.itinerari_id.name"/></td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 8px 0; color: #555;"><strong>Gidi / Ciceroni:</strong></td>
+                                        <td style="padding: 8px 0; color: #555;"><strong>Guida / Ciceroni:</strong></td>
                                         <td style="padding: 8px 0; text-align: right;"><span t-field="o.stafi_id.name"/> <span t-field="o.stafi_id.mbiemer"/></td>
                                     </tr>
                                 </t>

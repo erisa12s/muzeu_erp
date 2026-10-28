@@ -43,7 +43,7 @@
                             <field name="vizitori_id"/>
                             <field name="lloji_biletes_id"/>
                             <field name="cmimi" readonly="1"/>
-                            <!-- Zgjedhja e Itinerarit mbush automatikisht Katet dhe Gidin -->
+                            <!-- Zgjedhja e Itinerarit mbush automatikisht Katet dhe guidat -->
                             <field name="itinerari_id"/>
                             <field name="kati_ids" widget="many2many_tags" readonly="1"/>
                             <field name="stafi_id" readonly="1"/>

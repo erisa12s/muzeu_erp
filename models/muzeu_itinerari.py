@@ -12,6 +12,6 @@ class MuzeuItinerari(models.Model):
     kati_ids = fields.Many2many('muzeu.kati', string='Katet e Përfshira')
     ciceron_id = fields.Many2one(
         'muzeu.stafi', 
-        string='Gidi / Ciceroni',
+        string='Guida/ Ciceroni',
         domain="[('pozicioni', '=', 'ciceron')]"
     )
