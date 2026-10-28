@@ -30,7 +30,6 @@
                                     <field name="nr"/>
                                     <field name="lloji"/>
                                     <field name="siperfaqe"/>
-                                    <field name="kapaciteti"/>
                                 </list>
                             </field>
                         </page>

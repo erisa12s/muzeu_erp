@@ -4,7 +4,7 @@
     <menuitem id="menu_muzeu_root" name="Muzeu ERP" sequence="10"/>
 
     <!-- 1. Menuja për Artin -->
-    <menuitem id="menu_muzeu_arti" name="Eksponatet &amp; Arti" parent="menu_muzeu_root" sequence="10"/>
+    <menuitem id="menu_muzeu_arti" name="Veprat &amp; Arti" parent="menu_muzeu_root" sequence="10"/>
     <menuitem id="menu_muzeu_vepra" name="Veprat e Artit" parent="menu_muzeu_arti" action="action_muzeu_vepra" sequence="10"/>
     <menuitem id="menu_muzeu_artisti" name="Artistët" parent="menu_muzeu_arti" action="action_muzeu_artisti" sequence="20"/>
 
@@ -12,14 +12,19 @@
     <menuitem id="menu_muzeu_bileta_root" name="Kasa &amp; Biletat" parent="menu_muzeu_root" sequence="15"/>
     <menuitem id="menu_muzeu_bileta" name="Prerje Biletash" parent="menu_muzeu_bileta_root" action="action_muzeu_bileta" sequence="10"/>
     <menuitem id="menu_muzeu_vizitori" name="Vizitorët" parent="menu_muzeu_bileta_root" action="action_muzeu_vizitori" sequence="20"/>
+
     <!-- 3. Menuja e Itinerareve -->
     <menuitem id="menu_muzeu_itinerari_main" name="Itineraret &amp; Turet" parent="menu_muzeu_root" action="action_muzeu_itinerari" sequence="18"/>
 
-    <!-- 4. Menuja e Stafit -->
+    <!-- 4. Menuja e Dëmtimeve & Mirëmbajtjes -->
+    <menuitem id="menu_muzeu_demtimet_root" name="Mirëmbajtja" parent="menu_muzeu_root" sequence="19"/>
+    <menuitem id="menu_muzeu_demtimet" name="Dëmtimet &amp; Restaurimi" parent="menu_muzeu_demtimet_root" action="action_muzeu_demtimet" sequence="10"/>
+
+    <!-- 5. Menuja e Stafit -->
     <menuitem id="menu_muzeu_stafi_root" name="Menaxhimi i Stafit" parent="menu_muzeu_root" sequence="20"/>
     <menuitem id="menu_muzeu_stafi" name="Punonjësit" parent="menu_muzeu_stafi_root" action="action_muzeu_stafi" sequence="10"/>
 
-    <!-- 5. Menuja e Konfigurimit -->
+    <!-- 6. Menuja e Konfigurimit -->
     <menuitem id="menu_muzeu_konfigurim" name="Konfigurimi" parent="menu_muzeu_root" sequence="100"/>
     <menuitem id="menu_muzeu_kati" name="Katet" parent="menu_muzeu_konfigurim" action="action_muzeu_kati" sequence="10"/>
     <menuitem id="menu_muzeu_lloji_biletes" name="Çmimet e Biletave" parent="menu_muzeu_konfigurim" action="action_muzeu_lloji_biletes" sequence="20"/>

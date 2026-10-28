@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- PAMJA LISTË -->
+    <record id="view_muzeu_demtimet_list" model="ir.ui.view">
+        <field name="name">muzeu.demtimet.list</field>
+        <field name="model">muzeu.demtimet</field>
+        <field name="arch" type="xml">
+            <list string="Raportet e Dëmtimeve">
+                <field name="name"/>
+                <field name="vepra_id"/>
+                <field name="data_raportimit"/>
+                <field name="shkalla_demit" widget="badge" decoration-info="shkalla_demit == 'lehte'" decoration-warning="shkalla_demit == 'mesatare'" decoration-danger="shkalla_demit == 'rende'"/>
+                <field name="state" widget="badge" decoration-danger="state == 'raportuar'" decoration-warning="state == 'ne_restaurim'" decoration-success="state == 'rregulluar'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- PAMJA FORMULAR -->
+    <record id="view_muzeu_demtimet_form" model="ir.ui.view">
+        <field name="name">muzeu.demtimet.form</field>
+        <field name="model">muzeu.demtimet</field>
+        <field name="arch" type="xml">
+            <form string="Raport Dëmtimi / Mirëmbajtje">
+                <header>
+                    <button name="action_start_restoration" string="Fillo Restaurimin" type="object" class="oe_highlight" invisible="state != 'raportuar'"/>
+                    <button name="action_finish_restoration" string="Përfundo &amp; Rregullo" type="object" class="oe_highlight" invisible="state != 'ne_restaurim'"/>
+                    <button name="action_reset_to_draft" string="Rikthe në Raportuar" type="object" invisible="state == 'raportuar'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="raportuar,ne_restaurim,rregulluar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Titulli i Raportit..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Detajet e Veprës &amp; Dëmit">
+                            <field name="vepra_id"/>
+                            <field name="data_raportimit"/>
+                            <field name="shkalla_demit"/>
+                        </group>
+                        <group string="Restaurimi &amp; Stafi">
+                            <field name="raportues_id"/>
+                        </group>
+                    </group>
+                    <group string="Përshkrimi">
+                        <field name="pershkrimi" placeholder="Detaje mbi restaurimin..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- DEKLARIMI I ACTION-IT QË PO KËRKOHET -->
+    <record id="action_muzeu_demtimet" model="ir.actions.act_window">
+        <field name="name">Dëmtimet &amp; Mirëmbajtja</field>
+        <field name="res_model">muzeu.demtimet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

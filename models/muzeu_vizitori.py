@@ -13,7 +13,7 @@ class MuzeuVizitori(models.Model):
     email = fields.Char(string='Email')
     shtetesia = fields.Char(string='Shtetësia', default='Shqiptar')
     
-    kanal_regj = fields.Selection([
+    registation = fields.Selection([
         ('kasa', 'Në Arkë / Kasë'),
         ('web', 'web'),
         ('app', 'App'),

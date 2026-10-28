@@ -10,7 +10,7 @@
                 <field name="tel"/>
                 <field name="email"/>
                 <field name="shtetesia"/>
-                <field name="kanal_regj"/>
+                <field name="registation"/>
                 <field name="nr_vizitave"/>
                 <field name="totali_shpenzuar" sum="Totali"/>
             </list>
@@ -48,7 +48,7 @@
                         <group string="Kontakti &amp; Regjistrimi">
                             <field name="email"/>
                             <field name="tel"/>
-                            <field name="kanal_regj"/>
+                            <field name="registation"/>
                             <field name="created_at"/>
                         </group>
                     </group>

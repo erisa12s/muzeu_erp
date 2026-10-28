@@ -12,7 +12,6 @@ class MuzeuSalla(models.Model):
         ('restaurim', 'Laborator Restaurimi')
     ], string='Lloji i Sallës', default='ekspozite')
     siperfaqe = fields.Float(string='Sipërfaqja (m²)')
-    kapaciteti = fields.Integer(string='Kapaciteti Maksimal')
     
     kati_id = fields.Many2one('muzeu.kati', string='Kati', required=True, ondelete='cascade')
 

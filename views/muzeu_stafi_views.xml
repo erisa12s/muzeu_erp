@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- PAMJA LISTË (LIST VIEW) -->
     <record id="view_muzeu_stafi_list" model="ir.ui.view">
         <field name="name">muzeu.stafi.list</field>
         <field name="model">muzeu.stafi</field>
         <field name="arch" type="xml">
-            <list string="Stafi">
+            <list string="Stafi i Muzeut">
                 <field name="name"/>
                 <field name="mbiemer"/>
                 <field name="pozicioni"/>
-                <field name="email"/>
-                <field name="kati_id"/>
+                <field name="turni"/>
+                <field name="kati_ids" widget="many2many_tags"/>
+                <field name="tel"/>
                 <field name="state"/>
             </list>
         </field>
     </record>
 
+    <!-- PAMJA FORMULAR (FORM VIEW) -->
     <record id="view_muzeu_stafi_form" model="ir.ui.view">
         <field name="name">muzeu.stafi.form</field>
         <field name="model">muzeu.stafi</field>
         <field name="arch" type="xml">
-            <form string="Punonjësi">
+            <form string="Stafi">
                 <sheet>
                     <group>
-                        <group>
+                        <group string="Të Dhënat Personale">
                             <field name="name"/>
                             <field name="mbiemer"/>
-                            <field name="pozicioni"/>
-                            <field name="paga"/>
-                        </group>
-                        <group>
                             <field name="email"/>
                             <field name="tel"/>
-                            <field name="kati_id"/>
+                        </group>
+                        <group string="Detajet e Punës">
+                            <field name="pozicioni"/>
                             <field name="turni"/>
-                            <field name="state"/>
+                            <field name="paga"/>
+                            <!-- Zgjedhje e shumë katëve si etiketa (tags) -->
+                            <field name="kati_ids" widget="many2many_tags"/>
                             <field name="data_punesimit"/>
+                            <field name="state"/>
                         </group>
                     </group>
                 </sheet>
@@ -42,6 +46,7 @@
         </field>
     </record>
 
+    <!-- ACTION -->
     <record id="action_muzeu_stafi" model="ir.actions.act_window">
         <field name="name">Stafi i Muzeut</field>
         <field name="res_model">muzeu.stafi</field>

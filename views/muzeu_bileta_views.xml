@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- 1. PAMJET (VIEWS) -->
+    <!-- PAMJA LISTË -->
     <record id="view_muzeu_bileta_list" model="ir.ui.view">
         <field name="name">muzeu.bileta.list</field>
         <field name="model">muzeu.bileta</field>
@@ -9,19 +9,29 @@
                 <field name="code"/>
                 <field name="vizitori_id"/>
                 <field name="lloji_biletes_id"/>
+                <field name="itinerari_id"/>
                 <field name="cmimi"/>
+                <field name="menyra_pageses"/>
+                <field name="valuta"/>
                 <field name="stafi_id"/>
                 <field name="data_blerjes"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'paid'" decoration-danger="state == 'cancel'"/>
             </list>
         </field>
     </record>
 
+    <!-- PAMJA FORMULAR -->
     <record id="view_muzeu_bileta_form" model="ir.ui.view">
         <field name="name">muzeu.bileta.form</field>
         <field name="model">muzeu.bileta</field>
         <field name="arch" type="xml">
             <form string="Bileta">
+                <header>
+                    <button name="%(action_report_muzeu_bileta)d" string="Printo Biletën" type="action" class="btn-primary"/>
+                    <button name="action_paguaj" string="Konfirmo Pagesën" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_anullo" string="Anullo Biletën" type="object" invisible="state == 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,paid,cancel"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -29,17 +39,19 @@
                         </h1>
                     </div>
                     <group>
-                        <group>
-                            <!-- KËTU: E kemi zëvendësuar plotësisht me vizitori_id -->
+                        <group string="Informacioni i Biletës">
                             <field name="vizitori_id"/>
                             <field name="lloji_biletes_id"/>
                             <field name="cmimi" readonly="1"/>
+                            <!-- Zgjedhja e Itinerarit mbush automatikisht Katet dhe Gidin -->
+                            <field name="itinerari_id"/>
+                            <field name="kati_ids" widget="many2many_tags" readonly="1"/>
+                            <field name="stafi_id" readonly="1"/>
                         </group>
-                        <group>
-                            <field name="stafi_id"/>
-                            <field name="kati_id"/>
+                        <group string="Detajet e Pagesës">
+                            <field name="menyra_pageses"/>
+                            <field name="valuta"/>
                             <field name="data_blerjes"/>
-                            <field name="state"/>
                         </group>
                     </group>
                 </sheet>
@@ -47,16 +59,10 @@
         </field>
     </record>
 
-    <!-- 2. VEPRIMET (ACTIONS) -->
+    <!-- ACTION -->
     <record id="action_muzeu_bileta" model="ir.actions.act_window">
-        <field name="name">Biletat &amp; Kasa</field>
+        <field name="name">Prerje Biletash &amp; Pagesa</field>
         <field name="res_model">muzeu.bileta</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <record id="action_muzeu_lloji_biletes" model="ir.actions.act_window">
-        <field name="name">Çmimet e Biletave</field>
-        <field name="res_model">muzeu.lloji.biletes</field>
         <field name="view_mode">list,form</field>
     </record>
 </odoo>

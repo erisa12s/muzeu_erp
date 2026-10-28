@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- VEPRIMI I RAPORTIT (REPORT ACTION) -->
+    <record id="action_report_muzeu_bileta" model="ir.actions.report">
+        <field name="name">Printo Biletën</field>
+        <field name="model">muzeu.bileta</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">muzeu_erp.report_muzeu_bileta_template</field>
+        <field name="report_file">muzeu_erp.report_muzeu_bileta_template</field>
+        <field name="binding_model_id" ref="model_muzeu_bileta"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- STRUKTURA DHE DIZAJNI I BILETËS (TEMPLATE) -->
+    <template id="report_muzeu_bileta_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: Arial, sans-serif; padding: 20px;">
+                        <div style="border: 2px dashed #333; padding: 25px; border-radius: 12px; max-width: 650px; margin: 0 auto; background-color: #fafafa;">
+                            
+                            <!-- KOKA E BILETËS -->
+                            <div style="text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-bottom: 20px;">
+                                <h2 style="margin: 0; color: #0056b3;">MUZEU ERP</h2>
+                                <p style="margin: 5px 0 0 0; color: #666; font-size: 14px;">Biletë Hyrese Zyrtare</p>
+                            </div>
+
+                            <!-- KODI XHAM & STATUSI -->
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                                <div>
+                                    <strong style="font-size: 14px; color: #555;">Kodi i Biletës:</strong>
+                                    <h3 style="margin: 0; color: #111;" t-field="o.code"/>
+                                </div>
+                                <div style="text-align: right;">
+                                    <strong style="font-size: 14px; color: #555;">Statusi:</strong>
+                                    <h4 style="margin: 0; color: #28a745;" t-if="o.state == 'paid'">E PAGUAR</h4>
+                                    <h4 style="margin: 0; color: #dc3545;" t-if="o.state == 'draft'">E PAPAGUAR</h4>
+                                    <h4 style="margin: 0; color: #6c757d;" t-if="o.state == 'cancel'">ANULUAR</h4>
+                                </div>
+                            </div>
+
+                            <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;"/>
+
+                            <!-- DETAJET E VIZITORIT DHE BULETËS -->
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+                                <tr>
+                                    <td style="padding: 8px 0; color: #555;"><strong>Vizitori:</strong></td>
+                                    <td style="padding: 8px 0; text-align: right;"><span t-field="o.vizitori_id.display_name"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #555;"><strong>Lloji i Biletës:</strong></td>
+                                    <td style="padding: 8px 0; text-align: right;"><span t-field="o.lloji_biletes_id.name"/></td>
+                                </tr>
+                                <t t-if="o.itinerari_id">
+                                    <tr>
+                                        <td style="padding: 8px 0; color: #555;"><strong>Itinerari / Turi:</strong></td>
+                                        <td style="padding: 8px 0; text-align: right;"><span t-field="o.itinerari_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 8px 0; color: #555;"><strong>Gidi / Ciceroni:</strong></td>
+                                        <td style="padding: 8px 0; text-align: right;"><span t-field="o.stafi_id.name"/> <span t-field="o.stafi_id.mbiemer"/></td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #555;"><strong>Mënyra e Pagesës:</strong></td>
+                                    <td style="padding: 8px 0; text-align: right;"><span t-field="o.menyra_pageses"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #555;"><strong>Data e Blerjes:</strong></td>
+                                    <td style="padding: 8px 0; text-align: right;"><span t-field="o.data_blerjes"/></td>
+                                </tr>
+                            </table>
+
+                            <hr style="border: 0; border-top: 2px dashed #0056b3; margin: 15px 0;"/>
+
+                            <!-- ÇMIMI TOTAL -->
+                            <div style="text-align: right;">
+                                <span style="font-size: 16px; color: #333;">Çmimi Total: </span>
+                                <strong style="font-size: 22px; color: #0056b3;">
+                                    <span t-field="o.cmimi"/> <span t-field="o.valuta"/>
+                                </strong>
+                            </div>
+
+                            <!-- MASHKULL/SHËNIM NË FUND -->
+                            <div style="text-align: center; margin-top: 30px; font-size: 11px; color: #888;">
+                                <p style="margin: 0;">Ju faleminderit që vizituat muzeun tonë!</p>
+                                <p style="margin: 3px 0 0 0;">Ju lutemi mbani këtë biletë me vete gjatë gjithë vizitës.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -10,8 +10,8 @@ class MuzeuStafi(models.Model):
     tel = fields.Char(string='Telefon')
     pozicioni = fields.Selection([
         ('menaxher', 'Menaxher Muzeu'),
-        ('kurator', 'Kurator Arti'),
-        ('ciceron', 'Ciceron / Ciceronë'),
+        ('Riparues', 'Riparues Arti'),
+        ('ciceron', 'Ciceron / Cicerone'),
         ('mbrojtje', 'Rojë Sigurie'),
         ('recepsionist', 'Recepsionist / Recepsioniste'),
         ('mirembajtje', 'Mirëmbajtës / Pastrues'),
@@ -29,4 +29,4 @@ class MuzeuStafi(models.Model):
         ('larguar', 'I Larguar'),
     ], string='Statusi', default='aktiv')
 
-    kati_id = fields.Many2one('muzeu.kati', string='Kati ku është caktuar')
+    kati_ids = fields.Many2many('muzeu.kati', string='Katet ku është caktuar')
